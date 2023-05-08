@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap');
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .list-group {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 15px auto 40px;
+    list-style: none;
+    max-width: 50vw;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .list-group-item {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+  .list-group-item:last-child {
+    border-bottom: none;
+  }
+  .list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 320px;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.canvas-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  padding: 10px
+}
+
+canvas {
+  margin-bottom: 50px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Estilos do modal */
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 70vw;
+  height: 60vh;
+  overflow-y: auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal-container .modal-content {
+  padding: 10px;
+  text-align: center;
+  
+}
+
+.modal-container h2 {
+  margin-top: 0;
+}
+
+
+.modal-container .close-button:hover {
+  color: #333;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0.5px;
+  font-size: 13px;
+}
+
+.table th, .table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.close-button {
+  position: fixed;
+  z-index: 9999;
+  border-style: none;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 40px;
+  color: #000;
+  cursor: pointer;
+  background: none;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .list-group-item {
+    flex: 1 1 50%;
+  }
+  
+  .chart-container {
+    height: auto;
+    margin-top: 30px;
+    justify-content: center;
+  }
+
+  .canvas-card {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .modal-container {
+    max-width: 95%;
+    width: 95%;
+    height: 80vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .list-group-item {
+    flex: 1 1 100%;
+    border-right: none;
+  }
+
+  .chart-container {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .canvas-card {
+    margin: 20px 0;
+    width: 90%;
+  }
+}
