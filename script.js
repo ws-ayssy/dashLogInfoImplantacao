@@ -62,6 +62,7 @@ function createRow(cabecalhos, data)
 
   dataAnalysis(allLines)
   prevEntrega(allLines)
+  lateEntr(allLines)
 
 }
 
@@ -84,7 +85,7 @@ function prevEntrega(allLines)
         if(allLines[i][propriedade] != "")
         row.push(allLines[i][propriedade])
       }
-      const rowText = row.map(String).join(", ");
+      const rowText = row.map(String).join("; ");
       let li = document.createElement('li')
       li.textContent = rowText
       li.className = "list-group-item"
@@ -92,6 +93,7 @@ function prevEntrega(allLines)
     }
   }
 }
+
 
 function lateEntr(allLines) {
   const ul = document.getElementById('sec_ul');
@@ -138,6 +140,7 @@ function lateEntr(allLines) {
 
   }
 }
+
 
 function dataAnalysis(organizedLines)
 {
