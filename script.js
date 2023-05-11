@@ -93,6 +93,52 @@ function prevEntrega(allLines)
   }
 }
 
+function lateEntr(allLines) {
+  const ul = document.getElementById('sec_ul');
+  
+  for (let i = 0; i < allLines.length; i++) {
+    const dataPrev = allLines[i]["Prev. Entrega"];
+    const dataPrevEntrega = new Date(dataPrev.split("/").reverse().join("-"));
+    const hoje = new Date();
+    
+    const entrega = allLines[i]["Entrega"];
+    const dataEntrega = entrega ? new Date(entrega.split("/").reverse().join("-")) : null;
+    
+    if (dataEntrega && dataEntrega.getTime() > dataPrevEntrega.getTime()) {
+      document.getElementById('ul2-h3').hidden = false
+
+      const row = Object.entries(allLines[i])
+        .filter(([propriedade]) => {
+          return propriedade !== "Status" && propriedade !== "Prev. Entrega" && propriedade !== "Entrega" && propriedade !== "Tipo"  && allLines[i][propriedade] !== "";
+        })
+        .map(([propriedade, valor]) => `<strong>${propriedade}:</strong> ${valor}`);
+
+      const rowText = row.join("; ");
+      const li = document.createElement('li');
+      li.innerHTML = `<i class="fas fa-exclamation-triangle alert" style="color: rgb(236, 238, 95);"></i>${rowText}`;
+      li.className = "list-group-item";
+      li.title = `Previsão de Entrega: ${dataPrev} \nData de Entrega: ${entrega}`;
+
+      ul.appendChild(li);
+    } else if (dataPrevEntrega.getTime() < hoje.getTime() && !entrega) {
+      const row = Object.entries(allLines[i])
+        .filter(([propriedade]) => {
+          return propriedade !== "Status" && propriedade !== "Prev. Entrega" && propriedade !== "Entrega" && propriedade !== "Tipo" && allLines[i][propriedade] !== "";
+        })
+        .map(([propriedade, valor]) => `${propriedade}: ${valor}`);
+
+      const rowText = row.join("; ");
+      const li = document.createElement('li');
+      li.innerHTML = `<i class="fas fa-times danger" style="color: #FF5733;"></i>${rowText}`;
+      li.className = "list-group-item";
+      li.title = `Previsão de Entrega: ${dataPrev}`;
+
+      ul.appendChild(li);
+    }
+
+  }
+}
+
 function dataAnalysis(organizedLines)
 {
   let tipos = []
