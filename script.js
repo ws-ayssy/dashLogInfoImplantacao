@@ -310,7 +310,8 @@ function showDetails(value, organizedLines) {
   document.body.appendChild(closeButton);
   modalContainer.appendChild(table);
   document.body.appendChild(modalContainer);
-  document.querySelectorAll('ul') ? document.querySelectorAll('ul').style.opacity = 0.2 : ""
+  document.getElementById('main_ul') !== null ? document.getElementById('main_ul').style.opacity = 0.2 : ""
+  document.getElementById('sec_ul') !== null ? document.getElementById('sec_ul').style.opacity = 0.2 : ""
 
 
   closeButton.addEventListener("click", function() {
@@ -318,7 +319,8 @@ function showDetails(value, organizedLines) {
     document.body.removeChild(closeButton);
     document.getElementById("chartContainer").style.opacity = 1;
     document.querySelector('h2').style.opacity = 1;
-    document.querySelectorAll('ul') ? document.querySelectorAll('ul').style.opacity = 1 : ""
+    document.getElementById('main_ul') !== null ? document.getElementById('main_ul').style.opacity = 1 : ""
+    document.getElementById('sec_ul') !== null ? document.getElementById('sec_ul').style.opacity = 1 : ""
     
   });
 }
