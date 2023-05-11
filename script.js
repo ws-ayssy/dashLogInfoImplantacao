@@ -127,7 +127,7 @@ function lateEntr(allLines) {
         .filter(([propriedade]) => {
           return propriedade !== "Status" && propriedade !== "Prev. Entrega" && propriedade !== "Entrega" && propriedade !== "Tipo" && allLines[i][propriedade] !== "";
         })
-        .map(([propriedade, valor]) => `$<strong>${propriedade}:</strong> ${valor}`);
+        .map(([propriedade, valor]) => `<strong>${propriedade}:</strong> ${valor}`);
 
       const rowText = row.join("; ");
       const li = document.createElement('li');
