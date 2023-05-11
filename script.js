@@ -78,7 +78,7 @@ function prevEntrega(allLines)
     const ul = document.getElementById("main_ul")
     const row = []
 
-    if(diferencaDias <= 10 && allLines[i]["Entrega"] == ""){
+    if((diferencaDias <= 10 && diferencaDias >= 0) && allLines[i]["Entrega"] == ""){
       console.log(allLines[i])
       document.getElementById('ul-h3').hidden = false
       for (let propriedade in allLines[i]) {
@@ -127,7 +127,7 @@ function lateEntr(allLines) {
         .filter(([propriedade]) => {
           return propriedade !== "Status" && propriedade !== "Prev. Entrega" && propriedade !== "Entrega" && propriedade !== "Tipo" && allLines[i][propriedade] !== "";
         })
-        .map(([propriedade, valor]) => `${propriedade}: ${valor}`);
+        .map(([propriedade, valor]) => `$<strong>${propriedade}:</strong> ${valor}`);
 
       const rowText = row.join("; ");
       const li = document.createElement('li');
@@ -324,10 +324,3 @@ function showDetails(value, organizedLines) {
     
   });
 }
-
-
-
-  
-
-
-  
