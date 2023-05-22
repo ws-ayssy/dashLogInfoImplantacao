@@ -79,7 +79,6 @@ function prevEntrega(allLines)
     const row = []
 
     if((diferencaDias <= 10 && diferencaDias >= 0) && allLines[i]["Entrega"] == ""){
-      console.log(allLines[i])
       document.getElementById('ul-h3').hidden = false
       for (let propriedade in allLines[i]) {
         if(allLines[i][propriedade] != "")
