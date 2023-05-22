@@ -83,11 +83,11 @@ function prevEntrega(allLines)
       document.getElementById('ul-h3').hidden = false
       for (let propriedade in allLines[i]) {
         if(allLines[i][propriedade] != "")
-        row.push(allLines[i][propriedade])
+        row.push(`<strong> ${propriedade}: </strong> ${allLines[i][propriedade]} `)
       }
-      const rowText = row.map(String).join("; ");
+      const rowText = row.map(String).join(" ");
       let li = document.createElement('li')
-      li.textContent = rowText
+      li.innerHTML = rowText
       li.className = "list-group-item"
       ul.appendChild(li);
     }
